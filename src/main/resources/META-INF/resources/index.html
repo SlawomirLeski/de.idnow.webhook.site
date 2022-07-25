@@ -9,12 +9,12 @@
     <body>
 
         <section>
-            <h1>This is awesome-webhook page!</h1>
+            <h1>This is webhooks page!</h1>
 
             <table id='table'>
                 <tr>
                     <th>id</th>
-                    <th>hash</th>
+                    <th>token</th>
                     <th>creation time</th>
                 </tr>
 
@@ -25,10 +25,14 @@
                     }).then(data => {
                         // Work with JSON data here
 
+
                         var webhook = '';
 
+                        // ITERATING THROUGH OBJECTS
                         $.each(data, function (key, value) {
 
+                            //CONSTRUCTION OF ROWS HAVING
+                            // DATA FROM JSON OBJECT
                             webhook += '<tr>';
                             webhook += '<td><a href="http://localhost:8080/webhook/id/'+value.id+'">' +
                                     value.id + '</a></td>';
@@ -42,7 +46,10 @@
                             webhook += '</tr>';
                         });
 
+                        //INSERTING ROWS INTO TABLE
                         $('#table').append(webhook);
+
+
 
                     }).catch(err => {
                         // Do something for an error here
@@ -51,5 +58,7 @@
                 </script>
             </table>
         </section>
+
+
     </body>
 </html>
